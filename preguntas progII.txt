@@ -1,0 +1,202 @@
+¿Cómo borro una localidad?
+¿Con que clase leo en c# una consulta y como la recorro?
+¿Qué funcionalidad nos brinda un hilo?
+
+¿Cómo lo lanzo?
+// Creo el hilo
+Thread t = new Thread(UnMetodo);
+// Inicio el Hilo
+t.Start();
+
+¿Cómo lo freno?
+Thread.Sleep(1000)
+
+¿Cómo lo bajo?
+// Creo el hilo
+Thread t = new Thread(UnMetodo);
+// Inicio el Hilo
+t.Abort();
+
+¿Qué es un evento?
+Un evento es el modo que tiene una clase en particular de proporcionar notificaciones 
+a sus clientes cuando ocurre algo en particular dentro del objeto.
+
+¿Cuántos manejadores puede haber por evento?
+no hay restricciones
+
+¿Cómo asigno un manejador a un evento?
+se le asigna un evento mediante el operador += 
+
+¿Cuándo se reemplace el T por una clase o tipo y para qué sirve?
+Sirve para programar clases genéricas, capaces de implementar un tipado fuerte sin necesidad de conocer a priori los tipos para los que serán utilizadas.
+Se remplaza la T por una clase o tipo cuando se implemente
+
+¿Qué restricciones puede tener?
+where T : struct El argumento de tipo debe ser un tipo de valor.
+
+where T : class El argumento de tipo debe ser un tipo de referencia.
+
+where T : unmanaged  El argumento de tipo no debe ser un tipo de referencia y no debe contener ningún miembro de 
+					 tipo de referencia en ningún nivel de anidamiento.
+					 
+where T : new()  El argumento de tipo debe tener un constructor sin parámetros público. Cuando se usa 
+				 conjuntamente con otras restricciones, la restricción new() debe especificarse en último lugar.
+				 
+where T : <nombre de clase base> El argumento de tipo debe ser o derivarse de la clase base especificada.
+
+where T : <nombre de interfaz> El argumento de tipo debe ser o implementar la interfaz especificada. Pueden 
+								especificarse varias restricciones de interfaz. La interfaz de restricciones también puede ser genérica.
+								
+where T : U El argumento de tipo proporcionado por T debe ser o derivarse del argumento proporcionado para U.
+
+
+¿Qué librería necesito para utilizar archivos?
+using System.IO;
+
+¿Cómo agrego datos a un archivo de texto?
+
+// Abro el archivo ubicado en una dirección de la máquina
+StreamWriter sw = new StreamWriter("C:\\prueba.txt");
+
+// Agrego una línea de texto
+sw.WriteLine("Hola mundo!!");
+
+// Agrego otra línea de texto
+sw.WriteLine("Chau mundo!!");
+
+// Cierro el archivo
+sw.Close();
+
+¿Qué es la serializacion?
+Es el proceso de convertir un objeto en memoria en una secuencia lineal de bytes.
+
+¿Qué diferencia hay entre la serializacion binaria y xml?
+
+La serialización XML sólo serializa los atributos públicos y los valores de propiedad de un objeto en una secuencia XML.
+
+La serialización XML no convierte los métodos, indexadores, atributos privados ni propiedades de sólo lectura (salvo colecciones de sólo lectura).
+
+La clase central de la serialización XML es XmlSerializer y sus métodos más importantes son Serialize y Deserialize.
+
+Para poder hacer una serialización binaria se debe agregar el marcador [Serializable]
+
+Serializa y Deserializa objetos en formato binario.
+Se encuentra en el espacio de nombres System.Runtime.Serialization.Formatters.Binary
+Puede serializar atributos públicos y privados.
+Una clase debe tener un constructor por defecto para que BinaryFormatter pueda serializarla.
+Los métodos más importantes de la clase BinaryFormatter son:
+Serialize
+Deserialize
+
+
+¿Con que método serializo en XML?
+Dato p = new Dato();   //Objeto a serializar.
+XmlTextWriter writer;  //Objeto que escribirá en XML.
+XmlSerializer ser;     //Objeto que serializará.
+
+//Se indica ubicación del archivo XML y su codificación.
+writer = new XmlTextWriter(ArchivoXml, Codificación);
+//Se indica el tipo de objeto ha serializar.
+ser = new XmlSerializer(typeof(Dato));
+//Serializa el objeto p en el archivo contenido en writer.
+ser.Serialize(writer, p);
+//Se cierra la conexión al archivo
+writer.Close();
+    
+¿Cómo deserealizo un archivo binario?
+
+//Objeto que alojará los datos contenidos en el archivo binario.
+Dato aux = new Dato();
+FileStream fs;            //Objeto que leerá en binario.
+BinaryFormatter ser;      //Objeto que Deserializará.
+
+//Se indica ubicación del archivo binario y el modo.
+fs = new FileStream(pathBinario, FileMode.Open);
+//Se crea el objeto deserializador.
+ser = new BinaryFormatter();
+//Deserializa el archivo contenido en fs, lo guarda en aux.
+aux = (Dato)ser.Deserialize(fs);
+//Se cierra el objeto fs.
+fs.Close();
+
+¿Cómo verifico que exista un archivo?
+File.Exists(string path)
+
+¿Qué excepción tengo cuando no encuentra el path solicitado?
+FileNotFoundException 
+DirectoryNotFoundException
+
+¿Qué es una tupla?
+¿Con que elemento me conecto a una base de datos?
+	String connectionStr = "Data Source=[Instancia Del Servidor];
+	Initial Catalog=[Nombre de la Base de Datos];Integrated Security=True";
+
+	SqlCommand comando;
+
+comando = new SqlCommand();
+comando.CommandType = System.Data.CommandType.Text;
+comando.Connection = conexion;
+
+¿Qué elemento ejecuta una consulta?
+String consulta;
+consulta = "UPDATE Personas SET nombre = 'Fer' WHERE id = 1";
+//consulta = "INSERT INTO Personas (nombre)  VALUES('Pedro')";
+//consulta = "DELETE FROM Personas WHERE id = 1";
+
+comando.CommandText = consulta;
+conexion.Open();
+comando.ExecuteNonQuery();
+
+¿Cómo inserto un dato en una tabla?
+String consulta;
+consulta = "INSERT INTO Personas  (nombre, apellido) VALUES('gabriel', 'saliba');
+comando.CommandText = consulta;
+conexion.Open();
+comando.ExecuteNonQuery();
+
+¿Cómo hago una consulta a una tabla provincia?
+¿Cómo lanzo una excepción propia?
+se hace un throw new NombreDeLaClaseException("mensaje");
+
+¿Cómo capturo una excepción?
+con un bloque catch que contenga el tipo de la exception.
+
+¿Qué función cumple el finally?
+La cláusula finally de C# contiene un conjunto de instrucciones que es necesario ejecutar sea cual sea el flujo de control. 
+Las instrucciones del bloque finally se ejecutarán aunque el control abandone un bucle try como resultado de la ejecución normal porque el flujo de control llega al final del bloque try. 
+Del mismo modo, también se ejecutarán las instrucciones del bloque finally si el control abandona un bucle try como resultado de una instrucción throw o una instrucción de salto como break o continue. 
+El bloque finally es útil en dos casos: para evitar la repetición de instrucciones y para liberar recursos tras el lanzamiento de una excepción.
+
+¿Puedo tener varios catch? ¿Por qué?
+Si, porque si un bloque try lanza dos tipos de exception diferencia se necesitan 2 catch con el tipo lanzado para controlarlas.
+
+¿Qué etiqueta marca una clase de test?
+[TestMethod]
+
+¿Cómo corro un test unitario?
+click derecho sobre el test "run selected test" click izq.
+
+¿Para qué sirven los test unitarios?
+La idea de los Test Unitarios es escribir casos de prueba para cada función no trivial o método en el módulo, de forma que cada caso sea independiente del resto.
+Luego, con las Pruebas de Integración, se podrá asegurar el correcto funcionamiento del sistema o subsistema en cuestión.
+
+¿Cuántos tipos de testing hay?
+¿Qué es una interface?
+Es un contrato que establece una clase en el cual esta clase asegura que implementará un conjunto de métodos.
+ Son una manera de describir qué debería hacer una clase sin especificar el cómo.
+ Es la descripción de uno o más métodos que posteriormente alguna clase puede implementar.
+
+¿Una Interface puede tener propiedades? ¿Y atributos?
+Si, No.
+
+¿Cómo implemento una interface?
+MiClase: IDatos<int> 
+{}
+luego se implementan sus metodos y/o propiedades.
+
+Si heredo de una clase que tiene interface, ¿La estoy implementando?
+Si
+
+Si mi interface tiene la siguiente firma Interface Iarchivos<T>, cuando la implemento, ¿Que se le pasa a T?
+a T se le deberia pasar la clase o el tipo para implementarla
+luego se implementan sus metodos y/o propiedades
