@@ -1,0 +1,55 @@
+BALANCE GENERAL
+
+ACTIVO CORRIENTE					ACTIVO NO CORRIENTE						PATRIMONIO NETO
+
+Caja y Bancos: 						Otros creditos:							Capital:
+Bienes de cambio:					Bienes de uso:							Reservas:
+Creditos:																	Resultados:
+Otros creditos:
+Bienes Intangibles:
+Inversiones:
+
+
+
+PASIVO CORRIENTE					PASIVO NO CORRIENTE
+
+Ds.Comericales:						Ds.Financieras:
+Ds.Sociales:
+Ds.Fiscales:
+Ds.Bancarias:
+Ds.Impositivas:
+Previsiones:
+
+
+
+
+
+
+
+Alquileres Cedidos -- estado de resultados Gastos operativos
+Amort Acum Mueb y Utiles -- resta en el activo bienes de uso por ser una acum normal y no una amort de bienes de uso.
+Banco Q Cta Cte -- cajas y bancos del activo
+Caja -- cajas y bancos del activo
+Capital Social -- patrimonio neto en capital
+Cheques Terceros -- -- cajas y bancos del activo
+CMV -- estado de resultados.
+Deudas Bancarias -- pasivo crte ds.bancarias
+Deudores Morosos -- activo en creditos
+Deudores por ventas -- activo en creditos
+Gastos administrativos --estado de resultado gs.operativos
+Gastos de comercializacion --estado de resultado gs.comercizlizacion
+Gastos de financiacion --estado de resultado gs.financiacion
+Impuestos a las ganancias -- estado de resultado impues a las ganancias.
+Impuestos a pagar -- pasivo impositivas corriente
+Intereses obtenidos -- estado de resultado Ingresos extraordinarios
+Mercaderias -- activo bienes de cambio
+Moneda Extranjera -- activo caja y bancos
+Muebles y utiles -- activo bienes de uso
+Obligaciones negociables a pagar -- pasivo no corriente Ds.financieras
+Proveedores -- Pasivo corriente Ds.comerciales
+Reservas legales -- Patrimonio neto Reservas
+Resultados no distribuidos -- Patrimonio neto resultados
+Servicios a pagar -- pasivo corriente Ds.comerciales
+Sueldos a pagar -- Pasivo corriente Ds.sociales
+Ventas -- estado de resultado
+
